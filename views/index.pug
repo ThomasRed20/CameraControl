@@ -1,0 +1,29 @@
+extends ..\node_modules\jade-bootstrap\_bootstrap
+block body
+    - const allDay = `mass?type\=scene&mode\=day&group\=all`;
+    - const allNight = `mass?type\=scene&mode\=night&group\=all`
+    - const allIR = `mass?type\=scene&mode\=ir&group\=all`
+    +navbar(`${config.showName}`,"dropdown_menu", "inverse")
+        +nav_item("","active") Home
+        +nav_item_dropdown("#")(label="All Cameras")
+            +nav_header Scene File
+            +nav_item(allDay) Day
+            +nav_item(allNight) Night
+            +nav_item(allIR) IR
+
+    .groupPanels
+        each group in groups
+            +panel-primary(`${group}`).groupPanel
+                h3 Mass Change Scene Files
+                - const dayLink = `mass?type\=scene&mode\=day&group\=${group}`
+                - const nightLink = `mass?type\=scene&mode\=night&group\=${group}`
+                - const irLink = `mass?type\=scene&mode\=ir&group\=${group}`
+
+                +a-btn-primary(dayLink) All Day Scene
+                +a-btn-warning(nightLink) All Night Scene 
+                +a-btn-danger(irLink) All IR Scene
+                h3 Current Cameras
+                +table(["Camera Number","IP Address"],tablesByGroup.get(group), "table-striped table-bordered")
+
+    // Link the CSS file for styling
+    link(rel='stylesheet', href='/public/index.css')

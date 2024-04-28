@@ -1,0 +1,24 @@
+{
+  "name": "cameracontrol",
+  "version": "0.0.1",
+  "description": "A Management GUI for Mass Controlling Panasonic Cameras",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/ThomasRed20/cameracontrol"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "jade-bootstrap": "^1.0.14",
+    "pug": "^3.0.2",
+    "sequelize": "^6.37.3",
+    "sqlite3": "^5.1.7"
+  }
+}
